@@ -135,3 +135,8 @@ nav {
     justify-content: center;
     align-items: center;
 }
+
+.descripcion_lab {
+    text-align: center;
+    margin: 3rem;
+}
