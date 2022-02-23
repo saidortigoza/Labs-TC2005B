@@ -10,8 +10,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-    scroll-snap-type: y mandatory;
-    background-image: linear-gradient(to top, #DFE9F3, #ffffff 50%);
+    background-image: linear-gradient(to top, #DFE9F3, #ffffff 40%);
 }
 
 *, *:before, *:after {
@@ -31,6 +30,11 @@ h1 {
 h2 {
     text-align: center;
     font-size: 2.8rem;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.8rem;
 }
 
 .contenedor {
@@ -75,6 +79,7 @@ nav {
     background-size: cover;
     height: 45rem;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .contenido_img {
@@ -89,6 +94,44 @@ nav {
     justify-content: center;
 }
 
-.cont_main {
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(125,125,125,0.45);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(125,125,125,0.45);
+    box-shadow: 0px 5px 15px 0px rgba(125,125,125,0.45);
+    background-color: #ffffff;
+    padding: 4rem;
+    border-radius: 1rem;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icono {
+    height: 10rem;
+    width: 10rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot p{
     text-align: center;
+}
+
+.icon_ref {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
