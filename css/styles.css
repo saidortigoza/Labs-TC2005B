@@ -10,7 +10,8 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-    background-image: linear-gradient(to top, #DFE9F3, #ffffff 40%);
+    background-image: linear-gradient(to top, #DFE9F3, #ffffff 75%);
+    background-repeat: no-repeat;
 }
 
 *, *:before, *:after {
@@ -126,14 +127,15 @@ nav {
     align-items: center;
 }
 
-.foot p{
+.foot p {
     text-align: center;
 }
 
 .icon_ref {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline;
+    position: relative;
+    left: 44.5%;
+    padding-left: 2rem;
 }
 
 .descripcion_lab {
