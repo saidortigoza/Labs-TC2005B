@@ -29,9 +29,62 @@
         </nav>
     </div>
 
+    <section class="problemas">
+        <div id="divider"></div>
+        <h4>1. Función cuadrados y cubos</h4>
+        <button class="btn" onclick="cuadradosCubos()">Calculate</button>
+        <p id="cuadrados">Cuadrados: </p>
+        <p id="cubos">Cubos: </p>
+
+        <div id="divider"></div>
+        <h4>2. Función suma 2 números</h4>
+        <p>Completa la siguiente suma: </p>
+        <button class="btn" onclick="suma2numeros()">Generate Sum</button>
+        <p id="ecuacionSuma"></p> 
+        <p id="typed"></p> 
+        <p id="grade"></p> 
+        <p id="timeTaken"></p>
+
+        <div id="divider"></div>
+        <h4>3. Función Contador</h4>
+        <p>Funcion de Contador</p>
+        <button class="btn" onclick="contador()">Generar Arreglo</button>
+        <p id="arreglo"></p> <p id="cuenta"></p> 
+
+        <div id="divider"></div>
+        <h4>4. Función Promedios</h4>
+        <button onclick="promedios()">Calcular Promedios</button>
+        <p id="averages"></p>
+        <div id="divider"></div>
+        <h4>5. Función Inverso </h4>
+        <button onclick="inverso()">Sacar Inverso</button>
+        <p id="numero"></p>
+        <p id="inverso"></p>
+    </section>
+
     <section class="pregunta">
-        <h4>P</h4>
-        <p>R</p>
+        <h4>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h4>
+        <p>Java es un lenguaje de programación para el paradigma de orientado a objetos, mientras que JavaScript es un lenguaje cuyo propósito es la interacción web. Java es un lenguaje compilado mientras que JS es interpretado, sin embargo ambos utilizan casi la misma sintaxis para la mayoría de las situaciones.</p>
+
+        <h4>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h4>
+        <p>getDate: devuelve los días del mes.</p>
+        <p>getDay: devuelve los días de la semana.</p>
+        <p>getFullYear: devuelve el año.</p>
+        <p>getHours: devuelve la hora.</p>
+        <p>getMinutes: devuelve los minutos.</p>
+
+        <h4>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h4>
+        <p>pop: elimina el último elemento agregado.</p>
+        <p>push: agrega un elemento al final del arreglo.</p>
+        <p>toString: convierte un arreglo en un string.</p>
+        <p>splice: inserta y elimina elementos en una posición específica del arreglo.</p>
+        <p>concat: concatena arreglos.</p>
+
+        <h4>¿Cómo se declara una variable con alcance local dentro de una función?</h4>
+        <p>Se utiliza la palabra reservada let.</p>
+
+        <h4>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h4>
+        <p>Se corre el riesgo de que esa variable genere cambios dentro de otras funciones del código.</p>
     </section>
 </body>
 </html>
