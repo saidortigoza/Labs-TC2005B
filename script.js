@@ -1,11 +1,11 @@
 function cuadradosCubos() {
-    let numero = prompt("Digita un número");
+    let numero = prompt("Ingresa un número");
     const arreglo_cuadrados = [];
     const arreglo_cubos = [];
+    
     if(numero < 1 || numero > 50){
         alert("El numero debe de estar en el rango de 1 a 50")
     } else {
-        
         for (var i = 1; i <= numero; i++) {
             let res = Math.pow(i,2);
             let res_cubos = Math.pow(i,3);
@@ -15,6 +15,7 @@ function cuadradosCubos() {
             console.log(res_cubos);
             
         }
+        
         document.getElementById("cuadrados").append(arreglo_cuadrados) 
         document.getElementById("cubos").append(arreglo_cubos);
     }
@@ -40,7 +41,7 @@ function answerSuma(numero1, numero2, suma){
     }
     let timeEnd = performance.now();
     let tiempo = Math.floor(timeEnd - timeStart) / 1000;
-    document.getElementById("timeTaken").innerHTML = ("Tiempo tardado: " + tiempo + " segundos");
+    document.getElementById("timeTaken").innerHTML = ("Tiempo: " + tiempo + " segundos");
 
 }
 
