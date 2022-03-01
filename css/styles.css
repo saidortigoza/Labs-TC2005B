@@ -150,3 +150,25 @@ nav {
 .problemas {
     margin-left: 3rem;
 }
+
+.carousel {
+    height: 500px;
+}
+  
+.carousel-inner, .carousel-item {
+    height: 500px;
+}
+
+.carousel-item {
+    width:500px;
+    position: absolute;
+    margin-left: 420px;
+    text-align: center;
+}
+  
+#portfolio {
+    position: relative;
+    width: calc();
+    margin-left: calc();
+    background: rgba(0, 0, 0, 0.603);
+}
