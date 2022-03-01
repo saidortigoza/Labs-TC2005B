@@ -17,8 +17,13 @@ app.use('/hola', (request, response, next) => {
     response.send('Respuesta de la ruta "/hola"'); 
 });
 
+app.use('/caballos', (request, response, next) => {
+    console.log(request.body);
+    response.send('Respuesta de la ruta "/algunarutra"'); 
+});
+
 app.use((request, response, next) => {
-    console.log('Otro Middleware!');
+    console.log('Otro middleware');
     response.send('Hola mundo'); //Manda la respuesta
 });
 
