@@ -172,3 +172,19 @@ nav {
     margin-left: calc();
     background: rgba(0, 0, 0, 0.603);
 }
+
+.img-fluid {
+    background-size: cover;
+    height: 50rem;
+    position: relative;
+}
+
+.aboutme {
+    display: flex;
+}
+
+.infome {
+    margin-top: 20rem;
+    margin-left: 3rem;
+    margin-right: 1.5rem;
+}
