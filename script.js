@@ -1,200 +1,105 @@
-function cuadradosCubos() {
-    let numero = prompt("Ingresa un número");
-    const arreglo_cuadrados = [];
-    const arreglo_cubos = [];
-    
-    if(numero < 1 || numero > 50){
-        alert("El numero debe de estar en el rango de 1 a 50")
-    } else {
-        for (var i = 1; i <= numero; i++) {
-            let res = Math.pow(i,2);
-            let res_cubos = Math.pow(i,3);
-            arreglo_cuadrados.push(res);
-            arreglo_cubos.push(res_cubos);
-            console.log(res);
-            console.log(res_cubos);
-            
+//Pregunta 1
+const num = prompt("Ingresa el número hasta el cual quieres obtener cuadrados y cubos: ");
+let tabla= '<table><tr><th>Número</th><th>Cuadrado</th><th>Cubo</th><tr>';
+for (let i = 1; i <= num; i++){
+    tabla = tabla+`<tr><td>${i}</td><td>${i*i}</td><td>${i*i*i}</td></tr>`;
+}
+tabla=tabla + '</table>';
+document.getElementById('pregunta1').innerHTML = tabla;
+
+//Pregunta 2
+let num1 =  Math.floor(Math.random()*(50+1))
+let num2 =  Math.floor(Math.random()*(50+1))
+let ans = prompt("¿Cuánto es " + num1 + " + " + num2 + "?");
+
+if (ans == num1 + num2){
+    document.getElementById("pregunta2").innerHTML  = "Correcto";
+}
+else{
+    document.getElementById("pregunta2").innerHTML  = "Incorrecto";
+}
+
+//Pregunta 3
+let array = Array.from({length: 10}, () => Math.floor(Math.random() * 10));
+let contadores =new Map();
+contadores = {};
+
+function contar (array){
+    contadores["ceros"] = 0;
+    contadores["positivos"] = 0;
+    contadores["negativos"] = 0
+    for(let i = 0; i < array.length; i++){
+        if(array[i] == 0){
+            contadores["ceros"] = (contadores["ceros"] || 0) + 1;
         }
-        
-        document.getElementById("cuadrados").append(arreglo_cuadrados) 
-        document.getElementById("cubos").append(arreglo_cubos);
-    }
-}
-
-function suma2numeros(){
-    let numero1 = Math.floor(Math.random() * 100);
-    let numero2 = Math.floor(Math.random() * 100);
-    document.getElementById("ecuacionSuma").innerHTML = (numero1 + "+" + numero2 + "=");
-    let suma = numero1 + numero2;
-    answerSuma(numero1, numero2, suma);
-}
-
-function answerSuma(numero1, numero2, suma){
-    let timeStart = performance.now();
-    let resp = prompt(numero1 + "+" + numero2 );
-    if(resp == suma){
-        document.getElementById("typed").innerHTML = ("Tu respuesta: " + resp);
-        document.getElementById("grade").innerHTML = ("Correcto!");
-    } else {
-        document.getElementById("typed").innerHTML = ("Tu respuesta: " + resp);
-        document.getElementById("grade").innerHTML = ("Incorrecto!");
-    }
-    let timeEnd = performance.now();
-    let tiempo = Math.floor(timeEnd - timeStart) / 1000;
-    document.getElementById("timeTaken").innerHTML = ("Tiempo: " + tiempo + " segundos");
-
-}
-
-function contador(){
-    console.log("function success");
-    let n = prompt("Ingresa la cantidad de elementos que quieres en el arreglo.");
-    let arreglo = new Array;
-    let negativos = 0;
-    let ceros = 0;
-    let positivos = 0;
-
-    for(let i = 0; i<n; i++){
-        let numero = Math.floor(Math.random() * 10);
-        arreglo.push(numero);
-    }
-
-    document.getElementById("arreglo").innerHTML = ("El arreglo es el siguiente: " + arreglo);
-
-    for(let i = 0; i < arreglo.length; i++){
-        if(arreglo[i] < 0){
-            negativos++;
-        } else if(arreglo[i] == 0) {
-            ceros++;
-        } else {
-            positivos++;
+        else if(array[i] > 0){
+            contadores["positivos"] = (contadores["positivos"] || 0) + 1;
+        }
+        else if(array[i] < 0){
+            contadores["negativos"] = (contadores["negativos"] || 0) + 1;
         }
     }
-
-    document.getElementById("cuenta").innerHTML = ("Positivos: " + positivos + ", Ceros: " + ceros + ", Negativos: " + negativos);
-
+    result = "0: " + contadores["ceros"] + " positivos: " + contadores["positivos"] + " negativos: " + contadores["negativos"];
+    return result;
 }
 
-function promedios(){
-    let grupos = Math.floor(Math.random() * 10) + 1;
-    let grades = [];
-    for(let i = 0; i<grupos; i++){
-        grades[i] = [];
-        for(let j=0; j<grupos; j++){
-            let grade = Math.floor(Math.random()*10);
-            grades[i][j] = grade;
-        }
+document.getElementById("pregunta3").innerHTML  = "Arreglo: " + array + `<br>` + contar(array);
+
+// Pregunta 4
+let matriz = [[1,2,5,36], [1,4,5,6,7], [28,0,90,8]];
+let sum = 0;
+let prom = 0;
+let resultados = [];
+
+for(let i = 0; i < matriz.length; i++){
+    sum = 0;
+    prom = 0;
+    for(let j = 0; j < matriz[i].length; j++){
+        sum += matriz[i][j];
     }
+    prom = sum / matriz[i].length;
+    resultados.push(prom);
 
-    let promedios = [];
-    promedios = calcula_promedios(grades, grupos);
-    document.getElementById("averages").innerHTML = ("Arreglo con promedios: " + promedios);
-
-    console.log(grades);
-    console.log(promedios);
+    document.getElementById("pregunta4").innerHTML  =  "Arreglo: " + matriz + `<br>` + "Resultados: " + resultados ;
 }
 
-function calcula_promedios(grades, grupos){
-    let promedios = [];
-    for(let i = 0; i<grupos; i++){
-        let suma = 0;
-        for(let j = 0; j<grupos; j++){
-            suma += grades[i][j];
-        }
-        let average = Number(Math.round(suma/grupos + 'e2')+ 'e-2');
-        promedios.push(average);
-    }
-    return promedios;
+//Pregunta 5
+const number = prompt("Ingresa el número que quieres invertir:  ");
+
+function reverseNumber(n) {
+  const convertAndReverse = n.toString().split("").reverse().join("");
+  return Number(convertAndReverse);
 }
 
-function inverso(){
-    let numero = prompt("Ingresa un numero de mas de 1 digito: ");
-    let num_inverso = parseFloat(numero.toString().split('').reverse().join('')) * Math.sign(numero);
-    document.getElementById("numero").innerHTML = ("Numero original: " + numero);
-    document.getElementById("inverso").innerHTML = ("Numero Inverso: " + num_inverso);
-}
+document.getElementById("pregunta5").innerHTML  = reverseNumber(number);
 
-function ver_libreria(flag, modFlag){
-    const libro1 = {
-        author: 'Stephen King',
-        title: 'It',
-        releasedate: '1990',
-        status: 'Finished'
-    }
-
-    const libro2 = {
-        author: 'Kobe Bryant',
-        title: 'The Mamba Mentality',
-        releasedate: '2018',
-        status: 'Currently-Reading'
-    }
-
-    const libro3 = {
-        author: 'Mitch Albom',
-        title: 'The Stranger in the Lifeboat',
-        releasedate: '2021',
-        status: 'Not Started'
-    }
-
-    document.getElementById("author1").innerHTML = ("Author: " + libro1.author);
-    document.getElementById("title1").innerHTML = ("Title: " + libro1.title);
-    document.getElementById("releasedate1").innerHTML = ("Release Date: " + libro1.releasedate);
-    document.getElementById("status1").innerHTML = ("Stutus: " + libro1.status);
-
-
-    document.getElementById("author2").innerHTML = ("Author: " + libro2.author);
-    document.getElementById("title2").innerHTML = ("Title: " + libro2.title);
-    document.getElementById("releasedate2").innerHTML = ("Release Date: " + libro2.releasedate);
-    document.getElementById("status2").innerHTML = ("Stutus: " + libro2.status);
-
-    document.getElementById("author3").innerHTML = ("Author: " + libro3.author);
-    document.getElementById("title3").innerHTML = ("Title: " + libro3.title);
-    document.getElementById("releasedate3").innerHTML = ("Release Date: " + libro3.releasedate);
-    document.getElementById("status3").innerHTML = ("Stutus: " + libro3.status);
-    document.getElementById("libros").style = ("display: grid; grid-template-columns: repeat(auto-fill, 250px);")
-    
-    const newLibro = new Object();
-    if(flag==true){
-        newLibro.author = prompt("Ingresa el nombre del autor: ");
-        newLibro.title = prompt("Ingresa el nombre del libro");
-        newLibro.releasedate = prompt("Ingresa el Release Date");
-        newLibro.status = "Not Started";
-        place = document.getElementById("libros");
-        let newBook = document.createElement("div");
-        newBook.className = "libro";
-        newBook.id = "libroN";
-        place.appendChild(newBook)
-
-        let newp = document.createElement("p");
-        newp.id = "authorN"
-        newBook.appendChild(newp);
-        document.getElementById("authorN").innerHTML = ("Author: " + newLibro.author);
-        
-        let newt = document.createElement("p");
-        newt.id = "titleN"
-        newBook.appendChild(newt);
-        document.getElementById("titleN").innerHTML = ("Title: " + newLibro.title);
-
-        let newr = document.createElement("p");
-        newr.id = "releaseN"
-        newBook.appendChild(newr);
-        document.getElementById("releaseN").innerHTML = ("Release Date: " + newLibro.releasedate);
-
-        let news = document.createElement("p");
-        news.id = "statusN"
-        newBook.appendChild(news);
-        document.getElementById("statusN").innerHTML = ("Status: " + newLibro.status);
-
-        let btn = document.createElement("button");
-        document.getElementById("libros").appendChild(btn);
-        btn.id = "btnMod";
-        document.getElementById("btnMod").innerHTML = ("Modificar");
-        
-        //btn.onclick= (modStatus(newLibro));
+//Pregunta 6
+class Persona{
+    constructor(nombre, apellidos, edad){
+        this.nombre=nombre;
+        this.apellidos=apellidos;
+        this.edad=edad;
     }
     
+    saludar(){
+        return "¡Hola! "
+    }
 
-}
+    mostrarNombre(){
+        return this.nombre;
+    }
 
-function modStatus(newLibro){
-    newLibro.status = prompt("Cual es el Status del Libro?");
-}
+    mostrarApellidos(){
+        return this.apellidos;
+    }
+
+    mostrarEdad(){
+        return this.edad;
+    }
+    };
+
+let nombre = prompt("Ingresa tu nombre: ");
+let apellidos = prompt("Ingresa tus apellidos: ");
+let edad = prompt("Ingresa tu edad: ");
+let usuario = new Persona(nombre, apellidos, edad);
+document.getElementById("pregunta6").innerHTML  = usuario.saludar() + usuario.mostrarNombre() + "  " + usuario.mostrarApellidos() + " con edad " + usuario.mostrarEdad();
