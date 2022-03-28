@@ -1,7 +1,7 @@
 {
-  "name": "personal",
+  "name": "lab11",
   "version": "1.0.0",
-  "description": "Codigo clase",
+  "description": "Laboratorio 11: Express",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
