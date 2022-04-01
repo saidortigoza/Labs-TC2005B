@@ -6,13 +6,11 @@ const json_items = fs.readFileSync(`${__dirname}/public/api.json`, 'utf-8');
 const items = JSON.parse(json_items);
 
 router.get('/', (req, res, next) => {
-    res.sendFile(`${__dirname}/public/lab10.html`)
-    
+    res.sendFile(`${__dirname}/public/lab10.html`) 
 });
 
 router.get('/tienda', (req, res, next) => {
     res.sendFile(`${__dirname}/public/tienda.html`);
-    
 });
 
 router.post('/tienda', (req, res, next) => {
