@@ -11,8 +11,8 @@
     <h1 class = "title">Series favoritas de Said</h1>
     <p>Estas son las series favoritas de Said:</p>
     <ol>
-        <% for (let serie in series) { %>
-        <li><%= series[serie] %></li>
+        <% for (let serie of mostrarLista) { %>
+        <li><%= serie.nombre %></li>
     <%} %>
     </ol>
     <div>

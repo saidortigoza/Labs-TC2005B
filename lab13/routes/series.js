@@ -5,26 +5,14 @@ const filesystem = require('fs');
 
 const path = require('path');
 
-const series = ["Game of Thrones", "Demon Slayer", "Euphoria"];
+const controllerSeries = require('../controllers/series-controller')
 
-router.get("/", (request, response) => {
-    console.log("Someone has entered Series")
-    response.render('series', {series: series});
-});
+router.get("/", controllerSeries.homeSeries);
 
-router.get("/new", (request, response) => {
-    console.log("Someone has entered Series New");
-    response.render('seriesNew');
-});
+router.get("/new", controllerSeries.nuevaSerie);
 
-router.post("/new", (request, response) => {
-    console.log("Posted");
-    console.log(request.body);
-    series.push(request.body.nombre);
-    console.log(series);
-    //filesystem.writeFileSync('canciones.txt', canciones.toString());
-    response.redirect('/series/');
-    response.end();
-});
+router.get("/new", controllerSeries.postNuevaSerie);
+
+router.post("/new", controllerSeries.postNuevaSerie);
 
 module.exports = router;

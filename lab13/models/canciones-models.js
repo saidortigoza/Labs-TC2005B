@@ -4,7 +4,6 @@ const canciones = [
     {nombre: "Meet Me Halfway by Black Eyed Peas"}];
 
 module.exports = class classCanciones {
-
     constructor(nom) {
         this.nombre = nom;
     }
