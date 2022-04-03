@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Said's Favorites</title>
+    <link rel = "stylesheet" href = "../css/styles.css">
+</head>
+<body>
+    <%include('includes/header.ejs') %>
+    <h1 class = "title">Said's Favorites</h1>
+    <div>
+        <a href = "/series">
+            <button class = "boton">Series</button>
+        </a>
+
+        <a href = "/canciones">
+            <button class = "boton">Canciones</button>
+        </a>
+    </div>
+
+    <section class="pregunta">
+        <h4>¿Qué otros templating engines existen para node?</h4>
+        <p>R</p>
+    </section>
+
+    <%- include('includes/footer.ejs') %>
+</body>
+</html>
