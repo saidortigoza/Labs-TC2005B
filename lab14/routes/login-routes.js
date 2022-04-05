@@ -5,4 +5,12 @@ const filesystem = require('fs');
 
 const path = require('path');
 
-const controllerCanciones = require('../controllers/login-controllers')
+const controllerLogin = require('../controllers/login-controllers')
+
+router.get("/", controllerLogin.make_login);
+
+router.post("/", controllerLogin.sign_up);
+
+
+
+module.exports = router;

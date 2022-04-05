@@ -23,9 +23,11 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.get('/', (request, response) => {
-    console.log("Alguien entró a Home");
-    response.render('home');
+app.get('/home', (request, response) => {
+    const usuario = request.session.usuario ? request.session.usuario : '';
+    response.render('home', {
+        usuario: usuario
+    });
 });
 
 
@@ -36,7 +38,7 @@ app.get('/pending', (request, response) => {
 })
 
 const loginRouter = require('./routes/login-routes');
-app.use('/login', loginRouter);
+app.use('/', loginRouter);
 
 const seriesRouter = require('./routes/series');
 app.use('/series', seriesRouter); //Anything that starts with /peliculas works with userRoutes
