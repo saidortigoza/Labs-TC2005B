@@ -30,7 +30,6 @@ app.get('/home', (request, response) => {
     });
 });
 
-
 app.get('/pending', (request, response) => {
     response.status(404);
     response.write("Error 404, Not Found");
