@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva canción</title>
+    <link rel = "stylesheet" href = "../css/styles.css">
+</head>
+<body>
+    <h1 class = "title">Canciones favoritas de Said</h1>
+    <h2 class = "title">Ingresa una nueva canción a la lista:</h2>
+    <form action = "/canciones/new" method = "POST">
+        <label for = "nombre">Nombre de la canción:</label>
+        <input class = "input" type = "text" name = "nombre" required>
+        <input class = "boton" type = "submit" value = "Enviar">
+    </form>
+    
+    <br>
+
+    <a href = "/canciones">
+        <button class = "boton">Regresar a la lista de canciones</button>
+    </a>
+    
+    <br>
+
+    <%- include('includes/footer.ejs') %>
+</body>
+</html>
