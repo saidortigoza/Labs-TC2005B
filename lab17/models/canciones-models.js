@@ -1,20 +1,19 @@
-const canciones = [
-    {nombre: "Ribs by Lorde"}, 
-    {nombre: "Team by Lorde"}, 
-    {nombre: "Meet Me Halfway by Black Eyed Peas"}];
+const db = require('../util/database');
 
-module.exports = class classCanciones {
+module.exports = class Canciones {
     constructor(nom) {
         this.nombre = nom;
     }
 
     save() {
-        console.log(this);
-        canciones.push(this);
-        console.log(canciones);
+        return db.execute('INSERT INTO canciones (nombre) VALUES (?)', [this.nombre]);
     }
 
     static fetchAll() {
-        return canciones;
+        return db.execute('SELECT * FROM canciones');
+    }
+
+    static searchId(id_search) {
+        return db.execute('SELECT nombre FROM canciones WHERE id_cancion = ?', [id_search]);
     }
 }

@@ -13,4 +13,6 @@ router.get("/new", controllerCanciones.nuevaCancion);
 
 router.post("/new", controllerCanciones.postNuevaCancion);
 
+router.get("/:id_cancion", controllerCanciones.getCancion);
+
 module.exports = router;
