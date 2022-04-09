@@ -6,13 +6,14 @@ const filesystem = require('fs');
 const path = require('path');
 
 const controllerCanciones = require('../controllers/canciones-controller')
+const isAuth = require("../controllers/is-auth.js");
 
-router.get("/", controllerCanciones.homeCanciones);
+router.get("/", isAuth, controllerCanciones.homeCanciones);
 
-router.get("/new", controllerCanciones.nuevaCancion);
+router.get("/new", isAuth, controllerCanciones.nuevaCancion);
 
-router.post("/new", controllerCanciones.postNuevaCancion);
+router.post("/new", isAuth, controllerCanciones.postNuevaCancion);
 
-router.get("/:id_cancion", controllerCanciones.getCancion);
+router.get("/:id_cancion", isAuth, controllerCanciones.getCancion);
 
 module.exports = router;

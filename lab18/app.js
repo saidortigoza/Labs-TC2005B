@@ -14,6 +14,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
 const path = require('path');
+const csrf = require('csurf');
+
+const csrfProtection = csrf();
 
 // Simplifica como se imprime la cookie
 app.use(cookieParser());
@@ -35,6 +38,12 @@ app.get('/pending', (request, response) => {
     response.write("Error 404, Not Found");
     response.end();
 })
+
+app.use(csrfProtection); 
+app.use((request, response, next) => {
+    response.locals.csrfToken = request.csrfToken();
+    next();
+});
 
 const loginRouter = require('./routes/login-routes');
 app.use('/', loginRouter);
